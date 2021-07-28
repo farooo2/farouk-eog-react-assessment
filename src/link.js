@@ -1,12 +1,8 @@
 import { split, HttpLink } from '@apollo/client';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from 'apollo-utilities';
-import React from 'react';
-import { render } from 'react-dom';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App.tsx';
-import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, useSubscription, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const httpLink = new HttpLink({
   uri: 'https://react.eogresources.com/graphql',

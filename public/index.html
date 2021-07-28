@@ -48,6 +48,10 @@
         font-weight: lighter;
         font-family: Roboto;
       }
+      .stack-top{
+        z-index: 9;
+        margin: 20px; /* for demo purpose  */
+    }
       .overSelect {
         position: absolute;
         left: 0;
@@ -87,7 +91,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <h1>Metric</h1>
+    <h1 style="text-align: center;">EOG React Visualization</h1>
     <form id="dropdown menu">
       <div class="multiselect">
         <div class="selectBox" onclick="showCheckboxes()">
@@ -95,18 +99,18 @@
             <option>Select Metric </option>
           </select>
           <div class="overSelect"></div>
+          <div class = "box stack-top" id="checkboxes" float: left style="position: relative"  style="overflow: hidden";>
+            <label for="one"> <input type="checkbox" id="one"></input> Oil Temp (Fº) </label>
+            <label for="two"> <input type="checkbox" id="two"> </input> Water Temp (Fº) </label>
+            <label for="three"> <input type="checkbox" id="three"> </input> Flare Temp (Fº) </label>
+            <label for="Four"> <input type="checkbox" id="Four"> </input> Tubing Pressure (PSI) </label>
+            <label for="Five"> <input type="checkbox" id="Five"> </input> Casing Pressure (PSI) </label>
+            <label for="Six"> <input type="checkbox" id="Six"> </input> Inj Valve Open (%) </label>
+          </div>
         </div>
-        <div id="checkboxes">
-          <label for="one"> <input type="checkbox" id="one"></input> Oil Temp (Fº) </label>
-          <label for="two"> <input type="checkbox" id="two"> </input> Water Temp (Fº) </label>
-          <label for="three"> <input type="checkbox" id="three"> </input> Flare Temp (Fº) </label>
-          <label for="Four"> <input type="checkbox" id="Four"> </input> Tubing Pressure (PSI) </label>
-          <label for="Five"> <input type="checkbox" id="Five"> </input> Casing Pressure (PSI) </label>
-          <label for="Six"> <input type="checkbox" id="Six"> </input> Inj Valve Open (%) </label>
-        </div>
-
       </div>
-      <div id="root" style="text-align: center;"></div>
+      <section id="root" style="text-align: center" style="position: relative"; style="top : 100px"></section>
+
     </form>
   </body>
 </html>
