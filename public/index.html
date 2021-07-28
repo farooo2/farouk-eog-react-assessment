@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -19,15 +19,63 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-
+    <!-- <script src='index.js'> import Graph from '../.src/index.js'</script> -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script>
+      var expanded = false;
+      function showCheckboxes() {
+        var checkboxes = document.getElementById('checkboxes');
+        if (!expanded) {
+          checkboxes.style.display = 'block';
+          expanded = true;
+        } else {
+          checkboxes.style.display = 'none';
+          expanded = false;
+        }
+      }
+    </script>
+    <style>
+      .multiselect {
+        width: 200px;
+      }
+      .selectBox {
+        position: relative;
+      }
+      .selectBox select {
+        width: 100%;
+        font-weight: lighter;
+        font-family: Roboto;
+      }
+      .overSelect {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      #checkboxes {
+        display: none;
+        border: 1px #dadada solid;
+      }
+      #checkboxes label {
+        font-family: Roboto;
+        font-weight: lighter;
+        font-size: small;
+        display: flex;
+      }
+      #checkboxes label:hover {
+        background-color: #1e90ff;
+      }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     <title>EOG React Visualization Assessment</title>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -38,5 +86,27 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <h1>Metric</h1>
+    <form id="dropdown menu">
+      <div class="multiselect">
+        <div class="selectBox" onclick="showCheckboxes()">
+          <select>
+            <option>Select Metric </option>
+          </select>
+          <div class="overSelect"></div>
+        </div>
+        <div id="checkboxes">
+          <label for="one"> <input type="checkbox" id="one"></input> Oil Temp (Fº) </label>
+          <label for="two"> <input type="checkbox" id="two"> </input> Water Temp (Fº) </label>
+          <label for="three"> <input type="checkbox" id="three"> </input> Flare Temp (Fº) </label>
+          <label for="Four"> <input type="checkbox" id="Four"> </input> Tubing Pressure (PSI) </label>
+          <label for="Five"> <input type="checkbox" id="Five"> </input> Casing Pressure (PSI) </label>
+          <label for="Six"> <input type="checkbox" id="Six"> </input> Inj Valve Open (%) </label>
+        </div>
+
+      </div>
+      <div id="root" style="text-align: center;"></div>
+    </form>
   </body>
 </html>
